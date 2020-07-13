@@ -84,15 +84,16 @@ static UISlider * _volumeSlider;
     LOG_ME;
     self.netWatcher = [[NetWatcher alloc] init];
     
-    CGRect frame = CGRectMake(0, -100, 10, 0);
-    self.volumeView = [[MPVolumeView alloc] initWithFrame:frame];
-    [self.volumeView sizeToFit];
-    for (UIWindow *window in [[UIApplication sharedApplication] windows]) {
-        if (!window.isHidden) {
-            [window addSubview:self.volumeView];
-            break;
-        }
-    }
+    // 添加这个视图，在猫爪项目造成了feed流页面卡顿的问题
+//     CGRect frame = CGRectMake(0, -100, 10, 0);
+//     self.volumeView = [[MPVolumeView alloc] initWithFrame:frame];
+//     [self.volumeView sizeToFit];
+//     for (UIWindow *window in [[UIApplication sharedApplication] windows]) {
+//         if (!window.isHidden) {
+//             [window addSubview:self.volumeView];
+//             break;
+//         }
+//     }
     
     _fullScreenBlackView = [UIView new];
     _fullScreenBlackView.backgroundColor = [UIColor blackColor];
